@@ -4,7 +4,6 @@
  */
 package Admin_Frames;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -518,7 +517,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
                         // Enable/Disable buttons based on state
                         jButtonClean.setEnabled(true);
                         jButtonEditStaff.setEnabled(true);
-                        
 
                     }
                 }
@@ -533,25 +531,7 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCleanActionPerformed
-
-        jComboBoxStaffList.requestFocus();
-        jComboBoxStaffList.setSelectedIndex(-1);
-
-        jTextFieldName.setText("");
-        jTextFieldAddress1.setText("");
-        jTextFieldAddress2.setText("");
-        jComboBoxCounty.removeAllItems();
-        jComboBoxCounty.setSelectedIndex(-1);
-        jTextFieldEircode.setText("");
-        jTextFieldEmail.setText("");
-        jTextFieldPhone.setText("");
-        jTextFieldDoB.setText("");
-        jTextFieldPPSN.setText("");
-
-        jButtonSearch.setEnabled(true);
-        jButtonClean.setEnabled(false);
-        jButtonUpdateInfo.setEnabled(false);
-
+    CleanFields();
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
     private void jComboBoxStaffListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxStaffListItemStateChanged
@@ -614,7 +594,7 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
             }
         }
 
-        //Tool Tips off
+        CleanFields();
         ToolTipsNull();
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
@@ -626,11 +606,10 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         this.dispose();
 
 
-
     }//GEN-LAST:event_jButtonNewActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+
         // Clear the list to avoid duplication on refresh
         jComboBoxStaffList.removeAllItems();
         jButtonSearch.setEnabled(true);
@@ -640,7 +619,7 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql); ResultSet res = ps.executeQuery()) {
 
             while (res.next()) {
-                
+
                 // Instantiate Staff object using data from the database
                 Staff s = new Staff();
                 s.setStaffNumber(res.getInt("staff_id"));
@@ -678,7 +657,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         jButtonEditStaff.setEnabled(false);
         jButtonClean.setEnabled(false);
         jButtonSearch.setEnabled(false);
-        
 
         //Non Editable Fields
         jTextFieldName.setEnabled(false);
@@ -751,16 +729,13 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
             jTextFieldDoB.setToolTipText(null);
             jTextFieldPPSN.setToolTipText(null);
         } else {
-            
+
             //If theres no currentSelectedStaff = Cancel come from New Button.
-            
             //Hide Labels
             formWindowOpened(null);
             jLabelTitle.setVisible(false);
             jLabelEircodeInstructions.setVisible(false);
             jLabelPhoneInstructions.setVisible(false);
-            
-            
 
         }
 
@@ -768,7 +743,7 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
     private void jButtonUpdateInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateInfoActionPerformed
-    if (currentSelectedStaff == null) {
+        if (currentSelectedStaff == null) {
             showError("No staff selected for update.");
             return;
         }
@@ -871,7 +846,7 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
     }
 
     private boolean validateAndFillStaff(Person existingStaff) {
-        
+
         String address1 = jTextFieldAddress1.getText().trim();
         String address2 = jTextFieldAddress2.getText().trim();
         String county = jComboBoxCounty.getSelectedItem().toString();
@@ -880,7 +855,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         String phone = jTextFieldPhone.getText().trim();
 
         // 2. Validations
-        
         if (address1.isEmpty() || eircode.isEmpty() || email.isEmpty() || phone.isEmpty()) {
             showError("All required fields must be filled.");
             return false;
@@ -904,7 +878,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
             return false;
         }
 
-        
         existingStaff.setAddressLine1(address1);
         existingStaff.setAddressLine2(address2);
         existingStaff.setCounty(county);
@@ -914,7 +887,26 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
 
         return true; // Sucesso!
     }
-    
+
+    private void CleanFields() {
+        jComboBoxStaffList.requestFocus();
+        jComboBoxStaffList.setSelectedIndex(-1);
+
+        jTextFieldName.setText("");
+        jTextFieldAddress1.setText("");
+        jTextFieldAddress2.setText("");
+        jComboBoxCounty.removeAllItems();
+        jComboBoxCounty.setSelectedIndex(-1);
+        jTextFieldEircode.setText("");
+        jTextFieldEmail.setText("");
+        jTextFieldPhone.setText("");
+        jTextFieldDoB.setText("");
+        jTextFieldPPSN.setText("");
+
+        jButtonSearch.setEnabled(true);
+        jButtonClean.setEnabled(false);
+        jButtonUpdateInfo.setEnabled(false);
+    }
 
     private void ToolTipsNull() {
         //Tool Tips
