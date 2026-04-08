@@ -177,11 +177,6 @@ public class Admin_ManageStudent extends javax.swing.JFrame {
         jTextFieldName.setEditable(false);
         jTextFieldName.setToolTipText("");
         jTextFieldName.setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNameActionPerformed(evt);
-            }
-        });
 
         jTextFieldDoB.setEditable(false);
         jTextFieldDoB.setToolTipText("YYYY-MM-DD");
@@ -748,10 +743,6 @@ public class Admin_ManageStudent extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonCancelActionPerformed
 
-    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNameActionPerformed
-
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
         //Instructions
         jLabelTitle.setVisible(true);
@@ -940,7 +931,6 @@ public class Admin_ManageStudent extends javax.swing.JFrame {
         return true;
     }
     
-
     private void ToolTipsNull() {
         //Tool Tips
         jTextFieldName.setToolTipText(null);

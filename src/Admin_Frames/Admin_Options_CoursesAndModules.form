@@ -47,29 +47,30 @@
                                   <Component id="jComboBoxCourse" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabelNName9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
+                                      <Component id="jLabelNName10" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonClean" max="32767" attributes="0"/>
-                                  <Component id="jButtonSearch" max="32767" attributes="0"/>
-                              </Group>
                           </Group>
-                          <Component id="jLabelNName8" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="listModules1" min="-2" pref="333" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelNName10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNName8" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldLead" min="-2" pref="217" max="-2" attributes="0"/>
+                                      <Component id="listModules" min="-2" pref="333" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextFieldLead" pref="217" max="32767" attributes="0"/>
+                                          <Component id="listEnrolled" max="32767" attributes="0"/>
+                                          <Component id="jLabelNName11" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Component id="jButtonClean" min="-2" pref="92" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="127" max="32767" attributes="0"/>
@@ -84,22 +85,23 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jComboBoxCourse" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonClean" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jButtonClean" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelNName9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNName10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelNName9" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNName10" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jTextFieldLead" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldLead" min="-2" max="-2" attributes="0"/>
-                          <Component id="listModules1" min="-2" pref="241" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabelNName11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Component id="listEnrolled" min="-2" pref="191" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="listModules" min="-2" pref="241" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -112,17 +114,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButtonSearch">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Icons/Images/Search_icon.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Search"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxCourse">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -145,7 +136,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBackToAdmin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Back to Admin"/>
+        <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBackToAdminActionPerformed"/>
@@ -162,7 +153,6 @@
     <Component class="javax.swing.JButton" name="jButtonClean">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clean"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCleanActionPerformed"/>
@@ -180,11 +170,18 @@
         <Property name="text" type="java.lang.String" value="Module Lead"/>
       </Properties>
     </Component>
-    <Component class="java.awt.List" name="listModules1">
+    <Component class="java.awt.List" name="listModules">
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="listModules1ItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listModules1ActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="listModulesItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listModulesActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="java.awt.List" name="listEnrolled">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNName11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Students enrolled"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

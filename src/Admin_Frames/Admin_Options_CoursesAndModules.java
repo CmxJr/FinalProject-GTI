@@ -4,6 +4,7 @@
  */
 package Admin_Frames;
 
+import Teacher_Frames.Teacher_Options;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,24 +13,25 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import my.fp.Classes.Course;
 import java.time.LocalDate;
+import my.fp.Classes.DataStore;
 
 /**
  *
  * @author cjunior
  */
-public class Admin_Options_AddNewModule extends javax.swing.JFrame {
+public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
 
     private static final String URL = "jdbc:mysql://localhost:3306/final_project";
     private static final String USER = "root";      // seu usuário MySQL
     private static final String PASSWORD = "Root@1234"; // sua senha
     private Integer selectedStaffId = null;
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Admin_Options_AddNewModule.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Admin_Options_CoursesAndModules.class.getName());
 
     /**
      * Creates new form StaffFrame
      */
-    public Admin_Options_AddNewModule() {
+    public Admin_Options_CoursesAndModules() {
         int id = 0;
 
         initComponents();
@@ -44,7 +46,6 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonSearch = new javax.swing.JButton();
         jComboBoxCourse = new javax.swing.JComboBox<>();
         jLabelNName8 = new javax.swing.JLabel();
         jButtonBackToAdmin = new javax.swing.JButton();
@@ -53,7 +54,9 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
         jTextFieldLead = new javax.swing.JTextField();
         jLabelNName9 = new javax.swing.JLabel();
         jLabelNName10 = new javax.swing.JLabel();
-        listModules1 = new java.awt.List();
+        listModules = new java.awt.List();
+        listEnrolled = new java.awt.List();
+        jLabelNName11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -62,14 +65,6 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-        });
-
-        jButtonSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Images/Search_icon.png"))); // NOI18N
-        jButtonSearch.setText("Search");
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
             }
         });
 
@@ -91,7 +86,7 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
 
         jLabelNName8.setText("Select a course");
 
-        jButtonBackToAdmin.setText("Back to Admin");
+        jButtonBackToAdmin.setText("Back");
         jButtonBackToAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBackToAdminActionPerformed(evt);
@@ -106,7 +101,6 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
         });
 
         jButtonClean.setText("Clean");
-        jButtonClean.setEnabled(false);
         jButtonClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCleanActionPerformed(evt);
@@ -117,16 +111,18 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
 
         jLabelNName10.setText("Module Lead");
 
-        listModules1.addItemListener(new java.awt.event.ItemListener() {
+        listModules.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                listModules1ItemStateChanged(evt);
+                listModulesItemStateChanged(evt);
             }
         });
-        listModules1.addActionListener(new java.awt.event.ActionListener() {
+        listModules.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listModules1ActionPerformed(evt);
+                listModulesActionPerformed(evt);
             }
         });
+
+        jLabelNName11.setText("Students enrolled");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,21 +146,22 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
                                     .addComponent(jComboBoxCourse, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelNName9)
+                                        .addGap(303, 303, 303)
+                                        .addComponent(jLabelNName10)
                                         .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButtonClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jLabelNName8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(listModules1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNName10)
+                                    .addComponent(jLabelNName8)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jTextFieldLead, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(116, 116, 116)))))
+                                        .addComponent(listModules, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(20, 20, 20)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldLead, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                            .addComponent(listEnrolled, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelNName11))))
+                                .addGap(24, 24, 24)))
+                        .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,18 +172,20 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSearch))
+                    .addComponent(jButtonClean))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonClean, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNName9)
-                            .addComponent(jLabelNName10))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNName9)
+                    .addComponent(jLabelNName10, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextFieldLead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldLead, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(listModules1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabelNName11)
+                        .addGap(4, 4, 4)
+                        .addComponent(listEnrolled, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(listModules, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,63 +196,16 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        Object selected = jComboBoxCourse.getSelectedItem();
-
-        if (!(selected instanceof Course)) {
-            JOptionPane.showMessageDialog(this, "Please select a valid course first.");
-            return;
-        }
-
-        //Cast the object to Course to access its methods
-        Course selectedCourse = (Course) selected;
-        int courseId = selectedCourse.getCourseId();
-
-        String sql = "SELECT m.module_name, m.qqi_module_code "
-                + "FROM module m "
-                + "INNER JOIN course_has_module chm ON m.qqi_module_code = chm.qqi_module_code "
-                + "WHERE chm.course_id = ? "
-                + "ORDER BY m.module_name ASC";
-
-        try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            // Set the Course ID as the parameter for the query
-            ps.setInt(1, courseId);
-
-            try (ResultSet rs = ps.executeQuery()) {
-
-                // Clear UI components before repopulating
-//                listModules.removeAll();
-                jTextFieldLead.setText(null);
-
-                boolean hasModules = false;
-                while (rs.next()) {
-                    String moduleName = rs.getString("module_name");
-                    String moduleCode = rs.getString("qqi_module_code");
-
-                    // Add the formatted string to the AWT List
-//                    listModules.add(moduleName + " [" + moduleCode + "]");
-                    hasModules = true;
-                }
-
-                //Handle cases where no modules are found
-                if (!hasModules) {
-//                    listModules.add("No modules found for this course.");
-                    JOptionPane.showMessageDialog(this, "No modules associated with this course.");
-                }
-            }
-        } catch (SQLException e) {
-            // Error handling for database connectivity or query issues
-            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage());
-        }
-    }//GEN-LAST:event_jButtonSearchActionPerformed
-
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
     }//GEN-LAST:event_formWindowActivated
 
     private void jButtonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCleanActionPerformed
-
+        jComboBoxCourse.setSelectedIndex(-1);
+        listModules.removeAll();
+        jTextFieldLead.setText("");
+        listEnrolled.removeAll();
+        
 
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
@@ -270,13 +222,39 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonBackToAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackToAdminActionPerformed
-        Admin_Options f = new Admin_Options();
-        f.setVisible(true);
-        this.dispose();
+        if (DataStore.SelectedType.equals("Teacher")) {
+
+            Teacher_Options f = new Teacher_Options();
+            f.setVisible(true);
+            this.dispose();
+
+        } else {
+
+            Admin_Options f = new Admin_Options();
+            f.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonBackToAdminActionPerformed
 
     private void jComboBoxCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCourseActionPerformed
-        // TODO add your handling code here:
+        // Get the selected item from the ComboBox
+        Object selected = jComboBoxCourse.getSelectedItem();
+
+        // If no course is selected or the list is reset, clear all UI components
+        if (!(selected instanceof Course)) {
+            listModules.removeAll();
+            listEnrolled.removeAll();
+            jTextFieldLead.setText("");
+            return;
+        }
+
+        // Cast the selected object to the Course class to access its ID
+        Course selectedCourse = (Course) selected;
+        int courseId = selectedCourse.getCourseId();
+
+        // Call methods to refresh modules and students based on the selected course ID
+        updateModuleList(courseId);
+        updateEnrolledStudents(courseId);
     }//GEN-LAST:event_jComboBoxCourseActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -302,13 +280,104 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
         jComboBoxCourse.setSelectedIndex(-1);
     }//GEN-LAST:event_formWindowOpened
 
-    private void listModules1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listModules1ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listModules1ItemStateChanged
+    private void listModulesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listModulesItemStateChanged
+    String selectedItem = listModules.getSelectedItem();
+    if (selectedItem == null) return;
 
-    private void listModules1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listModules1ActionPerformed
+    // Extract the module code from inside the brackets [ ]
+    String moduleCode = selectedItem.substring(selectedItem.indexOf("[") + 1, selectedItem.indexOf("]"));
+
+    // SQL to find the Staff (Lead) for this specific module
+    String sql = "SELECT s.first_name, s.surname FROM staff s "
+               + "INNER JOIN module m ON s.staff_id = m.staff_id "
+               + "WHERE m.qqi_module_code = ?";
+
+    try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); 
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, moduleCode);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                String fullName = rs.getString("first_name") + " " + rs.getString("surname");
+                jTextFieldLead.setText(fullName);
+            } else {
+                jTextFieldLead.setText("No Lead Assigned");
+            }
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Error fetching Lead: " + e.getMessage());
+    }
+    // TODO add your handling code here:
+    }//GEN-LAST:event_listModulesItemStateChanged
+
+    private void listModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listModulesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listModules1ActionPerformed
+    }//GEN-LAST:event_listModulesActionPerformed
+
+    private void updateModuleList(int courseId) {
+    listModules.removeAll();
+    jTextFieldLead.setText(""); // Clear lead field until a module is selected
+
+    // SQL using your diagram names: 'surname' and 'course_id'
+    String sql = "SELECT m.module_name, m.qqi_module_code "
+               + "FROM module m "
+               + "INNER JOIN course_has_module chm ON m.qqi_module_code = chm.qqi_module_code "
+               + "WHERE chm.course_id = ? "
+               + "ORDER BY m.module_name ASC";
+
+    try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); 
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setInt(1, courseId);
+
+        try (ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                String mName = rs.getString("module_name");
+                String mCode = rs.getString("qqi_module_code");
+                listModules.add(mName + " [" + mCode + "]");
+            }
+        }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(this, "Database Error (Modules): " + e.getMessage());
+    }
+}
+
+    private void updateEnrolledStudents(int courseId) {
+        // Clear the student list before adding new data
+        listEnrolled.removeAll();
+
+        // SQL query to fetch students enrolled in the specific course
+        String sql = "SELECT s.first_name, s.surname, s.student_id "
+           + "FROM student s "
+           + "INNER JOIN class_group cg ON s.class_group_code = cg.class_group_code "
+           + "WHERE cg.course_id = ? " 
+           + "ORDER BY s.first_name ASC";
+
+        try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, courseId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                boolean hasStudents = false;
+                while (rs.next()) {
+                    String fullName = rs.getString("first_name") + " " + rs.getString("surname");
+                    String sId = rs.getString("student_id");
+
+                    // Add the student name and ID to the list
+                    listEnrolled.add(fullName + " (ID: " + sId + ")");
+                    hasStudents = true;
+                }
+
+                // If no students are found, inform the user in the list
+                if (!hasStudents) {
+                    listEnrolled.add("No students enrolled in this course.");
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Database Error (Students): " + e.getMessage());
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -333,19 +402,20 @@ public class Admin_Options_AddNewModule extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Admin_Options_AddNewModule().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Admin_Options_CoursesAndModules().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBackToAdmin;
     private javax.swing.JButton jButtonClean;
     private javax.swing.JButton jButtonExit;
-    private javax.swing.JButton jButtonSearch;
     private javax.swing.JComboBox<Course> jComboBoxCourse;
     private javax.swing.JLabel jLabelNName10;
+    private javax.swing.JLabel jLabelNName11;
     private javax.swing.JLabel jLabelNName8;
     private javax.swing.JLabel jLabelNName9;
     private javax.swing.JTextField jTextFieldLead;
-    private java.awt.List listModules1;
+    private java.awt.List listEnrolled;
+    private java.awt.List listModules;
     // End of variables declaration//GEN-END:variables
 }

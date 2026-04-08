@@ -10,9 +10,10 @@ public class Student extends Person {
     }
 
     // Constructor to help load the ComboBox or simple identification
-    public Student(int studentId, String firstName, String surname) {
+    public Student(int studentId, String firstName, String middleName, String surname) {
         this.studentId = studentId;
         this.setFirstName(firstName); // From Person class
+        this.setMiddleName(middleName);
         this.setSurname(surname);     // From Person class
     }
 
@@ -25,10 +26,14 @@ public class Student extends Person {
     }
 
     @Override
-    public String toString() {
-        // This is what the user sees in the ComboBox
-        return getFirstName() + " " + getMiddleName() +" " + getSurname();
-    }
+public String toString() {
+    
+    String f = (getFirstName() != null) ? getFirstName() : "";
+    String m = (getMiddleName() != null) ? getMiddleName() : "";
+    String s = (getSurname() != null) ? getSurname() : "";
+
+    return (f + " " + m + " " + s).trim().replaceAll("\\s+", " ");
+}
 
     // --- Getters and Setters ---
 

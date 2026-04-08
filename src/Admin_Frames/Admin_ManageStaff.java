@@ -99,22 +99,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxStaffList.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxStaffListItemStateChanged(evt);
-            }
-        });
-        jComboBoxStaffList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxStaffListActionPerformed(evt);
-            }
-        });
-        jComboBoxStaffList.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboBoxStaffListPropertyChange(evt);
-            }
-        });
-
         jLabelNName8.setText("Select a staff from the list");
 
         jButtonBackToAdmin.setText("Back to Admin");
@@ -190,11 +174,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         jTextFieldName.setEditable(false);
         jTextFieldName.setToolTipText("");
         jTextFieldName.setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNameActionPerformed(evt);
-            }
-        });
 
         jTextFieldDoB.setEditable(false);
         jTextFieldDoB.setToolTipText("YYYY-MM-DD");
@@ -534,14 +513,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
     CleanFields();
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
-    private void jComboBoxStaffListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxStaffListItemStateChanged
-
-    }//GEN-LAST:event_jComboBoxStaffListItemStateChanged
-
-    private void jComboBoxStaffListPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxStaffListPropertyChange
-
-    }//GEN-LAST:event_jComboBoxStaffListPropertyChange
-
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
@@ -551,10 +522,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonBackToAdminActionPerformed
-
-    private void jComboBoxStaffListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxStaffListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxStaffListActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         if (currentSelectedStaff == null) {
@@ -682,10 +649,6 @@ public class Admin_ManageStaff extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButtonEditStaffActionPerformed
-
-    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNameActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
 

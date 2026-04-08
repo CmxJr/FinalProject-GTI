@@ -37,40 +37,53 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonEnterResultsByStudent" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                          <Component id="jButtonEnterResultsByClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButtonFullStudentRecord" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="jButtonModuleResultsByClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="jButtonModuleResultsAllGroups" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="jButtonModuleResultsDistinction" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
-                                  <Component id="jButtonModuleResultsFullClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonEnterResultsByStudent" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonEnterResultsByClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonCoursesAndModules" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jButtonFullStudentRecord" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="jButtonModuleResultsByClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="jButtonModuleResultsAllGroups" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="jButtonModuleResultsDistinction" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                          <Component id="jButtonModuleResultsFullClass" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonBackToLogin" min="-2" pref="132" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonExit" min="-2" pref="132" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jButtonBackToLogin" min="-2" pref="132" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonExit" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -80,27 +93,35 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonFullStudentRecord" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonModuleResultsByClass" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonEnterResultsByStudent" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonEnterResultsByClass" min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonModuleResultsAllGroups" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jButtonModuleResultsAllGroups" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonModuleResultsDistinction" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonModuleResultsDistinction" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jButtonCoursesAndModules" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonModuleResultsFullClass" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="79" max="32767" attributes="0"/>
@@ -132,9 +153,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonEnterResultsByStudent">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="by Students"/>
       </Properties>
       <Events>
@@ -143,9 +161,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonEnterResultsByClass">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="by Class"/>
       </Properties>
       <Events>
@@ -164,9 +179,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonFullStudentRecord">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Full Student Record "/>
       </Properties>
       <Events>
@@ -175,9 +187,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonModuleResultsByClass">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Module Results (by Class Group)"/>
       </Properties>
       <Events>
@@ -186,9 +195,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonModuleResultsAllGroups">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Module Results (All Groups)"/>
       </Properties>
       <Events>
@@ -197,9 +203,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonModuleResultsDistinction">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Distinction Students by Module"/>
       </Properties>
       <Events>
@@ -213,6 +216,27 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModuleResultsFullClassActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCoursesAndModules">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Courses and Modules"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCoursesAndModulesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Course details"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Logged in as Teacher"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

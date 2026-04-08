@@ -30,17 +30,23 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabelStudentName3" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelStudentName1" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
-                          <Component id="jComboBoxSelectStudent" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonSearch" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="jLabelCourse" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" alignment="0" pref="682" max="32767" attributes="0"/>
-                  <Component id="jLabelStudentName" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jLabelStudentName" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelStudentName1" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxSelectStudent" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonSearch" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabelnstructions" min="-2" pref="158" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
@@ -74,11 +80,14 @@
                   <Component id="jButtonSearch" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="jLabelStudentName" min="-2" pref="17" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelStudentName" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                  <Component id="jLabelnstructions" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabelCourse" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="161" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="160" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jButtonEnterResults" min="-2" pref="31" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -163,7 +172,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonEnterResults">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="text" type="java.lang.String" value="Save new grades"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEnterResultsActionPerformed"/>
@@ -240,6 +249,17 @@
         <Property name="text" type="java.lang.String" value="Course:"/>
         <Property name="verticalAlignment" type="int" value="1"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelnstructions">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica Neue" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Enter or Edit the grades"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jLabelnstructions.setVisible(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

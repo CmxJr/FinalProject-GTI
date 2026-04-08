@@ -4,6 +4,7 @@
  */
 package Reports_Frames;
 
+import Admin_Frames.Admin_Options;
 import Teacher_Frames.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import my.fp.Classes.DataStore;
+import my.fp.Classes.Student;
 
 /**
  *
@@ -21,7 +24,7 @@ public class FullStudentReport extends javax.swing.JFrame {
     private static final String URL = "jdbc:mysql://localhost:3306/final_project";
     private static final String USER = "root";      // seu usuário MySQL
     private static final String PASSWORD = "Root@1234"; // sua senha
-    private int selectedStudentId;
+    private Student currentSelectedStudent;
 
     /**
      * Creates new form StaffFrame
@@ -33,13 +36,12 @@ public class FullStudentReport extends javax.swing.JFrame {
 
     public FullStudentReport(int selectedStudentId) {
         initComponents();
-        this.selectedStudentId = selectedStudentId;
 
         loadStudentResults();
     }
 
     private void loadStudentResults() {
-        // aqui você usa selectedStudentId para buscar no banco
+    
     }
 
     /**
@@ -94,7 +96,7 @@ public class FullStudentReport extends javax.swing.JFrame {
 
         jLabelStudentName1.setText("Select student:");
 
-        jButtonClean.setText("Clean Search");
+        jButtonClean.setText("Clean");
         jButtonClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCleanActionPerformed(evt);
@@ -160,34 +162,34 @@ public class FullStudentReport extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabelStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelStudentName3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxSelectStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSearch))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jButtonBackToOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(21, 21, 21)
+                .addComponent(jButtonBackToOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabelCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(48, 48, 48)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelStudentName3)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBoxSelectStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButtonClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,16 +202,16 @@ public class FullStudentReport extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxSelectStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(7, 7, 7)
+                .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelCourse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addComponent(jButtonPrint, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,22 +223,21 @@ public class FullStudentReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        String sql = "SELECT student_id, first_name, surname FROM student ORDER BY first_name, middle_name";
+        String sql = "SELECT student_id, first_name, middle_name, surname FROM student ORDER BY first_name, middle_name";
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql); ResultSet res = ps.executeQuery()) {
 
             while (res.next()) {
-                int id = res.getInt("student_id");
-                String first = res.getString("first_name");
-                String surname = res.getString("surname");
 
-                String name
-                        = (first == null ? "" : first) + " "
-                        + (surname == null ? "" : surname);
+                // OOP
+                Student s = new Student();
+                s.setStudentId(res.getInt("student_id"));
+                s.setFirstName(res.getString("first_name"));
+                s.setMiddleName(res.getString("middle_name"));
+                s.setSurname(res.getString("surname"));
 
-                name = name.trim().replaceAll("\\s+", " ");
-
-                jComboBoxSelectStudent.addItem(id + ": " + name);
+                // Add the object to the ComboBox. 
+                jComboBoxSelectStudent.addItem(s);
             }
 
         } catch (SQLException e) {
@@ -250,9 +251,18 @@ public class FullStudentReport extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonBackToOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackToOptionsActionPerformed
-        Teacher_Options f = new Teacher_Options();
-        f.setVisible(true);
-        this.dispose();
+        if (DataStore.SelectedType.equals("Teacher")) {
+
+            Teacher_Options f = new Teacher_Options();
+            f.setVisible(true);
+            this.dispose();
+
+        } else {
+
+            Admin_Options f = new Admin_Options();
+            f.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonBackToOptionsActionPerformed
 
     private void jButtonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrintActionPerformed
@@ -264,63 +274,60 @@ public class FullStudentReport extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        //Table Model
         var model = (javax.swing.table.DefaultTableModel) jTableResults.getModel();
         model.setRowCount(0);
+
         Object studentSelected = jComboBoxSelectStudent.getSelectedItem();
+        currentSelectedStudent = (Student) studentSelected;
+
         if (studentSelected == null) {
             JOptionPane.showMessageDialog(this, "Please select a student.");
             return;
         }
-
-        String selectedText = studentSelected.toString().trim();
-        int colonIdx = selectedText.indexOf(':');
-
-        int studentId;
-        try {
-            studentId = Integer.parseInt(selectedText.substring(0, colonIdx).trim());
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Invalid student ID.");
-            return;
-        }
-        selectedStudentId = studentId;
+        
+        //Getting the id to the new SQL
+        int id = currentSelectedStudent.getStudentId();
+        
+        //Cleaning Labels
         jLabelStudentName.setText("");
         jLabelCourse.setText("");
 
         String sql = """
-    SELECT 
-    s.first_name, 
-    s.surname, 
-    c.course_name, 
-    m.module_name, 
-    a.assignment_1, 
-    a.assignment_2, 
-    a.exam, 
-    a.result
-    FROM student s
-    LEFT JOIN class_group cg        ON s.class_group_code = cg.class_group_code
-    LEFT JOIN course c             ON cg.course_id = c.course_id
-    LEFT JOIN course_has_module chm ON c.course_id = chm.course_id 
-    LEFT JOIN module m             ON chm.qqi_module_code = m.qqi_module_code
-    LEFT JOIN assessment a    ON (
-    a.student_id = s.student_id AND 
-    a.qqi_module_code = m.qqi_module_code
-    )
-    WHERE s.student_id = ?
-    ORDER BY m.module_name ASC;
-    """;
+        SELECT 
+        s.first_name, 
+        s.surname, 
+        c.course_name, 
+        m.module_name, 
+        a.assignment_1, 
+        a.assignment_2, 
+        a.exam, 
+        a.result
+        FROM student s
+        LEFT JOIN class_group cg        ON s.class_group_code = cg.class_group_code
+        LEFT JOIN course c             ON cg.course_id = c.course_id
+        LEFT JOIN course_has_module chm ON c.course_id = chm.course_id 
+        LEFT JOIN module m             ON chm.qqi_module_code = m.qqi_module_code
+        LEFT JOIN assessment a    ON (
+        a.student_id = s.student_id AND 
+        a.qqi_module_code = m.qqi_module_code
+        )
+        WHERE s.student_id = ?
+        ORDER BY m.module_name ASC;
+        """;
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, studentId);
+            ps.setInt(1, id);
 
             try (ResultSet rs = ps.executeQuery()) {
                 boolean studentFound = false;
 
                 while (rs.next()) {
-                    // 1. Captura o nome e curso apenas na primeira linha encontrada
+
                     if (!studentFound) {
-                        String fullName = rs.getString("first_name") + " " + rs.getString("surname");
-                        jLabelStudentName.setText("Student: " + fullName);
+
+                        jLabelStudentName.setText("Student: " + currentSelectedStudent);
                         jLabelCourse.setText("Course: " + (rs.getString("course_name")));
 
                         studentFound = true;
@@ -331,24 +338,24 @@ public class FullStudentReport extends javax.swing.JFrame {
                         continue;
                     }
 
-                    // 2. Captura as notas
+                    // Get the grades
                     Object a1 = rs.getObject("assignment_1");
                     Object a2 = rs.getObject("assignment_2");
                     Object exam = rs.getObject("exam");
                     Object result = rs.getObject("result");
 
-                    // 3. Adiciona a linha (Evite duplicados: se os campos de nota forem null, 
+                    // Add a new line / no copies if the field is null
                     model.addRow(new Object[]{
                         moduleName,
-                        a1, // Passa o objeto do banco direto (Integer ou null)
+                        a1,
                         a2,
                         exam,
-                        result // O Swing renderiza null como célula vazia automaticamente
+                        result
                     });
                 }
 
                 if (!studentFound) {
-                    JOptionPane.showMessageDialog(this, "Student not found (ID: " + studentId + ").");
+                    JOptionPane.showMessageDialog(this, "Student not found (ID: " + id + ").");
                     return;
                 }
             }
@@ -481,7 +488,7 @@ public class FullStudentReport extends javax.swing.JFrame {
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonPrint;
     private javax.swing.JButton jButtonSearch;
-    private javax.swing.JComboBox<String> jComboBoxSelectStudent;
+    private javax.swing.JComboBox<Student> jComboBoxSelectStudent;
     private javax.swing.JLabel jLabelCourse;
     private javax.swing.JLabel jLabelStudentName;
     private javax.swing.JLabel jLabelStudentName1;

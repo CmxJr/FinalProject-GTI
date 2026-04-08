@@ -4,14 +4,13 @@
  */
 package Teacher_Frames;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
+import my.fp.Classes.Course;
 
 /**
  *
@@ -34,9 +33,9 @@ public class Teacher_EnterResultsByClass extends javax.swing.JFrame {
     public Teacher_EnterResultsByClass() {
         initComponents();
         // Hide ID Column
-jTableResults.getColumnModel().getColumn(0).setMinWidth(0);
-jTableResults.getColumnModel().getColumn(0).setMaxWidth(0);
-jTableResults.getColumnModel().getColumn(0).setWidth(0);
+        jTableResults.getColumnModel().getColumn(0).setMinWidth(0);
+        jTableResults.getColumnModel().getColumn(0).setMaxWidth(0);
+        jTableResults.getColumnModel().getColumn(0).setWidth(0);
 
     }
 
@@ -64,7 +63,9 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
         jComboBoxModule = new javax.swing.JComboBox<>();
         jButtonSearchModule = new javax.swing.JButton();
         jLabelStudentName5 = new javax.swing.JLabel();
-        jButtonEnterResults = new javax.swing.JButton();
+        jButtonSaveNewGrades = new javax.swing.JButton();
+        jLabelnstructions = new javax.swing.JLabel();
+        jLabelnstructions.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -165,13 +166,16 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
 
         jLabelStudentName5.setText("Select a Module:");
 
-        jButtonEnterResults.setText("Save");
-        jButtonEnterResults.setEnabled(false);
-        jButtonEnterResults.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSaveNewGrades.setText("Save new grades");
+        jButtonSaveNewGrades.setEnabled(false);
+        jButtonSaveNewGrades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnterResultsActionPerformed(evt);
+                jButtonSaveNewGradesActionPerformed(evt);
             }
         });
+
+        jLabelnstructions.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabelnstructions.setText("Enter or Edit the grades");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,7 +185,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(561, 561, 561)
-                        .addComponent(jButtonEnterResults, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonSaveNewGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -202,7 +206,9 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jComboBoxModule, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonSearchModule))
+                                .addComponent(jButtonSearchModule)
+                                .addGap(92, 92, 92)
+                                .addComponent(jLabelnstructions))
                             .addComponent(jLabelStudentName5, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -234,7 +240,8 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonSearchModule, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxModule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxModule, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelnstructions))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -244,7 +251,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonClean, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEnterResults, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonSaveNewGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,6 +288,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
         jComboBoxModule.setEnabled(false);
         jComboBoxModule.removeAllItems();
         jButtonSearchModule.setEnabled(false);
+        jLabelnstructions.setVisible(false);
 
 
     }//GEN-LAST:event_jButtonCleanActionPerformed
@@ -290,34 +298,33 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
         jButtonSearchClass.setEnabled(true);
         jComboBoxClass.setEnabled(true);
         jComboBoxModule.removeAllItems();
+        jLabelnstructions.setVisible(false);
 
         // Clear the combo box to avoid duplicating items from previous searches
         jComboBoxClass.removeAllItems();
 
         // Get the selected item from the Course combo box
-        Object selectedItem = jComboBoxCourse.getSelectedItem();
+        Course selectedCourse = (Course)jComboBoxCourse.getSelectedItem();
 
-        if (selectedItem == null || !selectedItem.toString().contains(":")) {
+        if (selectedCourse == null) {
             JOptionPane.showMessageDialog(this, "Please select a  course first.");
             return;
         }
 
-        String selectedCourse = selectedItem.toString();
+        
+        selectedCourseID = selectedCourse.getCourseId();
 
         try {
-            // Parsing the ID from a string format like "1 : Computer Science"
-            String selectedText = selectedCourse.trim();
-            int colonIdx = selectedText.indexOf(':');
-            selectedCourseID = Integer.parseInt(selectedText.substring(0, colonIdx).trim());
+           
 
             String sql = "SELECT class_group_code FROM class_group WHERE course_id = ?";
 
             try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql)) {
 
-                // Bind the selected ID to the first parameter (?) of the query
+                
                 ps.setInt(1, selectedCourseID);
 
-                // Execute the query and process the results
+                
                 try (ResultSet rs = ps.executeQuery()) {
                     boolean classFound = false;
 
@@ -330,14 +337,13 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                         classFound = true;
                     }
 
-                    // Optional: notify user if no classes are linked to this course
+                    
                     if (!classFound) {
                         JOptionPane.showMessageDialog(this, "No classes found for the selected course.");
                     }
                 }
             }
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Error: Invalid course ID format.");
+        
         } catch (SQLException e) {
             // Handle database connection or syntax errors
             JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
@@ -404,96 +410,97 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
         UpdateTable();
         jComboBoxModule.setEnabled(true);
         jButtonSearchModule.setEnabled(true);
+        jLabelnstructions.setVisible(true);
 
     }//GEN-LAST:event_jButtonSearchModuleActionPerformed
 
-    private void jButtonEnterResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterResultsActionPerformed
-    // 1. Commit any cell being edited
-    if (jTableResults.isEditing()) {
-        jTableResults.getCellEditor().stopCellEditing();
-    }
+    private void jButtonSaveNewGradesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveNewGradesActionPerformed
+        // 1. Commit any cell being edited
+        if (jTableResults.isEditing()) {
+            jTableResults.getCellEditor().stopCellEditing();
+        }
 
-    // 2. Validate all grades first (to avoid stopping mid-way due to errors)
-    if (!validateGrades()) return;
+        // 2. Validate all grades first (to avoid stopping mid-way due to errors)
+        if (!validateGrades()) {
+            return;
+        }
 
-    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableResults.getModel();
-    int rowCount = model.getRowCount();
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTableResults.getModel();
+        int rowCount = model.getRowCount();
 
-    // SQL using ID for safety
-    String sql = """
+        // SQL using ID for safety
+        String sql = """
         UPDATE assessment 
         SET assignment_1 = ?, assignment_2 = ?, exam = ?, result = ?
         WHERE student_id = ? 
         AND qqi_module_code = (SELECT qqi_module_code FROM module WHERE module_name = ? LIMIT 1)
     """;
 
-    try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); 
-         PreparedStatement ps = con.prepareStatement(sql)) {
-        
-        boolean anyUpdate = false;
+        try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql)) {
 
-        // Iterate through each student in the table
-        for (int i = 0; i < rowCount; i++) {
-            // Indices adjusted for: [0] ID | [1] Name | [2] A1 | [3] A2 | [4] Exam | [5] Result
-            int studentId = Integer.parseInt(model.getValueAt(i, 0).toString());
-            String fullName = model.getValueAt(i, 1).toString();
-            double a1 = Double.parseDouble(model.getValueAt(i, 2).toString());
-            double a2 = Double.parseDouble(model.getValueAt(i, 3).toString());
-            double exam = Double.parseDouble(model.getValueAt(i, 4).toString());
-            
-            // Calculate Result
-            double totalResult = Math.round(((a1 + a2 + exam) / 3.0) * 100.0) / 100.0;
+            boolean anyUpdate = false;
 
-            // 3. INDIVIDUAL CONFIRMATION POP-UP (Like your other frame)
-            String popUp = "Save grades for this student?\n\n"
-                    + "Student: " + fullName + "\n"
-                    + "Module: " + selectedModule + "\n"
-                    + "\n"
-                    + "Assignment 1: " + a1 + "\n"
-                    + "Assignment 2: " + a2 + "\n"
-                    + "Exam: " + exam + "\n"
-                    + "Final Result: " + String.format("%.2f", totalResult);
+            // Iterate through each student in the table
+            for (int i = 0; i < rowCount; i++) {
+                // Indices adjusted for: [0] ID | [1] Name | [2] A1 | [3] A2 | [4] Exam | [5] Result
+                int studentId = Integer.parseInt(model.getValueAt(i, 0).toString());
+                String fullName = model.getValueAt(i, 1).toString();
+                double a1 = Double.parseDouble(model.getValueAt(i, 2).toString());
+                double a2 = Double.parseDouble(model.getValueAt(i, 3).toString());
+                double exam = Double.parseDouble(model.getValueAt(i, 4).toString());
 
-            int choice = JOptionPane.showConfirmDialog(
-                    this,
-                    popUp,
-                    "Confirm Save for " + fullName,
-                    JOptionPane.YES_NO_CANCEL_OPTION); // Added Cancel to stop the whole loop if needed
+                // Calculate Result
+                double totalResult = Math.round(((a1 + a2 + exam) / 3.0) * 100.0) / 100.0;
 
-            if (choice == JOptionPane.YES_OPTION) {
-                // Set parameters
-                ps.setDouble(1, a1);
-                ps.setDouble(2, a2);
-                ps.setDouble(3, exam);
-                ps.setDouble(4, totalResult);
-                ps.setInt(5, studentId);
-                ps.setString(6, selectedModule);
+                // 3. INDIVIDUAL CONFIRMATION POP-UP (Like your other frame)
+                String popUp = "Save grades for this student?\n\n"
+                        + "Student: " + fullName + "\n"
+                        + "Module: " + selectedModule + "\n"
+                        + "\n"
+                        + "Assignment 1: " + a1 + "\n"
+                        + "Assignment 2: " + a2 + "\n"
+                        + "Exam: " + exam + "\n"
+                        + "Final Result: " + String.format("%.2f", totalResult);
 
-                ps.executeUpdate();
-                anyUpdate = true;
-            } else if (choice == JOptionPane.CANCEL_OPTION) {
-                // Stop the process for the rest of the class
-                break; 
+                int choice = JOptionPane.showConfirmDialog(
+                        this,
+                        popUp,
+                        "Confirm Save for " + fullName,
+                        JOptionPane.YES_NO_CANCEL_OPTION); // Added Cancel to stop the whole loop if needed
+
+                if (choice == JOptionPane.YES_OPTION) {
+                    // Set parameters
+                    ps.setDouble(1, a1);
+                    ps.setDouble(2, a2);
+                    ps.setDouble(3, exam);
+                    ps.setDouble(4, totalResult);
+                    ps.setInt(5, studentId);
+                    ps.setString(6, selectedModule);
+
+                    ps.executeUpdate();
+                    anyUpdate = true;
+                } else if (choice == JOptionPane.CANCEL_OPTION) {
+                    // Stop the process for the rest of the class
+                    break;
+                }
+                // If NO_OPTION, it just skips to the next student
             }
-            // If NO_OPTION, it just skips to the next student
+
+            if (anyUpdate) {
+                JOptionPane.showMessageDialog(this, "Process finished.");
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage());
         }
 
-        if (anyUpdate) {
-            JOptionPane.showMessageDialog(this, "Process finished.");
-        }
+        UpdateTable(); // Refresh to show results column updated
+        jLabelnstructions.setVisible(false);
 
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage());
-    }
-    
-    UpdateTable(); // Refresh to show results column updated
-
-
-
-    }//GEN-LAST:event_jButtonEnterResultsActionPerformed
+    }//GEN-LAST:event_jButtonSaveNewGradesActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        FillComboBox(); 
+        FillComboBox();
     }//GEN-LAST:event_formWindowOpened
 
     private void FillComboBox() {
@@ -503,15 +510,14 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
         try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD); PreparedStatement ps = con.prepareStatement(sql); ResultSet res = ps.executeQuery()) {
 
             while (res.next()) {
-                int id = res.getInt("course_id");
-                String qqi = res.getString("qqi_course_code");
-                String name = res.getString("course_name");
+                
+                Course c = new Course();
+                c.setCourseId(res.getInt("course_id"));
+                c.setQqiCourseCode(res.getString("qqi_course_code"));
+                c.setCourseName(res.getString("course_name"));
+                
 
-                String courseName
-                        = (name == null ? "" : name) + " "
-                        + (qqi == null ? "" : qqi);
-
-                jComboBoxCourse.addItem(id + ": " + courseName);
+                jComboBoxCourse.addItem(c);
             }
 
         } catch (SQLException e) {
@@ -525,7 +531,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
 
         Object selectedModuleObj = jComboBoxModule.getSelectedItem();
         selectedModule = selectedModuleObj.toString();
-        jButtonEnterResults.setEnabled(true);
+        jButtonSaveNewGrades.setEnabled(true);
 
         var model = (javax.swing.table.DefaultTableModel) jTableResults.getModel();
         model.setRowCount(0);
@@ -597,7 +603,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
 
         for (int i = 0; i < model.getRowCount(); i++) {
             // Column 0 is the Module Name
-            String moduleNameText = model.getValueAt(i, 0).toString();
+            String moduleNameText = model.getValueAt(i, 1).toString();
 
             // Check columns 1, 2, and 3 (Assignment 1, 2, and Exam)
             for (int col = 2; col <= 4; col++) {
@@ -618,7 +624,7 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
                         // 3. Range validation (still needed to prevent 11.00 or -1.00)
                         if (grade < 0 || grade > 10) {
                             JOptionPane.showMessageDialog(this,
-                                    "Invalid grade in module: " + moduleNameText + "!\n"
+                                    "Invalid grade!\n"
                                     + "Field: " + colName + "\n"
                                     + "Value: " + grade + "\n"
                                     + "Grades must be between 0.00 and 10.00.");
@@ -669,18 +675,19 @@ jTableResults.getColumnModel().getColumn(0).setWidth(0);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBackToAdmin_Options;
     private javax.swing.JButton jButtonClean;
-    private javax.swing.JButton jButtonEnterResults;
     private javax.swing.JButton jButtonExit;
+    private javax.swing.JButton jButtonSaveNewGrades;
     private javax.swing.JButton jButtonSearchClass;
     private javax.swing.JButton jButtonSearchCourse;
     private javax.swing.JButton jButtonSearchModule;
     private javax.swing.JComboBox<String> jComboBoxClass;
-    private javax.swing.JComboBox<String> jComboBoxCourse;
+    private javax.swing.JComboBox<Course> jComboBoxCourse;
     private javax.swing.JComboBox<String> jComboBoxModule;
     private javax.swing.JLabel jLabelStudentName2;
     private javax.swing.JLabel jLabelStudentName3;
     private javax.swing.JLabel jLabelStudentName4;
     private javax.swing.JLabel jLabelStudentName5;
+    private javax.swing.JLabel jLabelnstructions;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableResults;
     // End of variables declaration//GEN-END:variables

@@ -71,6 +71,8 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
         jTableResults = new javax.swing.JTable();
         jLabelStudentName = new javax.swing.JLabel();
         jLabelCourse = new javax.swing.JLabel();
+        jLabelnstructions = new javax.swing.JLabel();
+        jLabelnstructions.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -120,7 +122,7 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
         jLabelStudentName3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabelStudentName3.setText("Enter Results by Student");
 
-        jButtonEnterResults.setText("Save");
+        jButtonEnterResults.setText("Save new grades");
         jButtonEnterResults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEnterResultsActionPerformed(evt);
@@ -170,6 +172,9 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
         jLabelCourse.setText("Course:");
         jLabelCourse.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        jLabelnstructions.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabelnstructions.setText("Enter or Edit the grades");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,15 +183,19 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelStudentName3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxSelectStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSearch))
                     .addComponent(jLabelCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
-                    .addComponent(jLabelStudentName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabelStudentName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelStudentName1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxSelectStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonSearch)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelnstructions, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(57, 57, 57)
@@ -213,11 +222,13 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
                     .addComponent(jComboBoxSelectStudent)
                     .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
-                .addComponent(jLabelStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelnstructions))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelCourse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                 .addGap(24, 24, 24)
                 .addComponent(jButtonEnterResults, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -339,6 +350,7 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
             logger.log(java.util.logging.Level.SEVERE, "Database error occurred", e);
         }
+        jLabelnstructions.setVisible(true);
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonEnterResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnterResultsActionPerformed
@@ -415,6 +427,7 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
         }
 
         UpdateSearch(); // Refresh the table with new results
+        jLabelnstructions.setVisible(false);
 
 
     }//GEN-LAST:event_jButtonEnterResultsActionPerformed
@@ -431,17 +444,14 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
                 int id = res.getInt("student_id");
                 String first = res.getString("first_name");
                 String middle = res.getString("middle_name");
-                String last = res.getString("surname");
+                String surname = res.getString("surname");
 
                 String fullName = (first != null ? first : "") + " "
                         + (middle != null ? middle : "") + " "
-                        + (last != null ? last : "");
-
-                //Clean spaces
-                fullName = fullName.trim().replaceAll("\\s+", " ");
+                        + (surname != null ? surname : "");
 
                 //Create a new Student (Class) with student_id,and names, add at Combo Box
-                jComboBoxSelectStudent.addItem(new Student(id, fullName, ""));
+                jComboBoxSelectStudent.addItem(new Student(id, first, surname, middle));
             }
 
         } catch (SQLException e) {
@@ -529,6 +539,7 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
         //Clean Labels
         jLabelStudentName.setText("Student:");
         jLabelCourse.setText("Course:");
+        jLabelnstructions.setVisible(false);
 
         // Clean the table
         var model = (javax.swing.table.DefaultTableModel) jTableResults.getModel();
@@ -678,6 +689,7 @@ public class Teacher_EnterResultsByStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStudentName;
     private javax.swing.JLabel jLabelStudentName1;
     private javax.swing.JLabel jLabelStudentName3;
+    private javax.swing.JLabel jLabelnstructions;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableResults;
     // End of variables declaration//GEN-END:variables
