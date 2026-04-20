@@ -10,8 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.util.List;
-import java.util.ArrayList;
 import Teacher_Frames.Teacher_Options;
 import my.fp.Classes.DataStore;
 import Admin_Frames.Admin_Options;

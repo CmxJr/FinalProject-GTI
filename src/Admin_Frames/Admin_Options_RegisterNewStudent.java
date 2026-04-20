@@ -82,9 +82,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(617, 619));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -147,11 +144,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
                 jTextFieldDoBDayFocusLost(evt);
             }
         });
-        jTextFieldDoBDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDoBDayActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldDoBDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 318, 35, -1));
 
         jTextFieldFirstName.setMinimumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -176,11 +168,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
                 jTextFieldDoBMonthFocusLost(evt);
             }
         });
-        jTextFieldDoBMonth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDoBMonthActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldDoBMonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 318, 35, -1));
         jPanel2.add(jTextFieldSurname, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 87, 341, -1));
 
@@ -195,11 +182,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
                 jTextFieldDoBYearFocusLost(evt);
             }
         });
-        jTextFieldDoBYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDoBYearActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldDoBYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 317, 47, 25));
 
         jLabelNName9.setText("D");
@@ -210,19 +192,7 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
 
         jLabelNName11.setText("Y");
         jPanel2.add(jLabelNName11, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 321, -1, -1));
-
-        jTextFieldAddressLine1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAddressLine1ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldAddressLine1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 116, 341, -1));
-
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 341, -1));
 
         jTextFieldEircode.setForeground(new java.awt.Color(153, 153, 153));
@@ -249,12 +219,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
 
         jLabelNName1.setText("Address Line 1:");
         jPanel2.add(jLabelNName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 119, -1, -1));
-
-        jTextFieldAddressLine2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAddressLine2ActionPerformed(evt);
-            }
-        });
         jPanel2.add(jTextFieldAddressLine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 145, 341, -1));
 
         jLabelNName12.setText("Address Line 2:");
@@ -341,10 +305,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    }//GEN-LAST:event_formWindowActivated
-
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
@@ -378,10 +338,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
-    private void jTextFieldAddressLine2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddressLine2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAddressLine2ActionPerformed
-
     private void jTextFieldEircodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEircodeFocusLost
         if (!jTextFieldEircode.getText().equals("H91PHK1")) {
 
@@ -397,18 +353,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
         jTextFieldEircode.setForeground(java.awt.Color.BLACK);
     }//GEN-LAST:event_jTextFieldEircodeFocusGained
 
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
-    private void jTextFieldAddressLine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddressLine1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAddressLine1ActionPerformed
-
-    private void jTextFieldDoBYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBYearActionPerformed
-
-    }//GEN-LAST:event_jTextFieldDoBYearActionPerformed
-
     private void jTextFieldDoBYearFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDoBYearFocusLost
         if (!jTextFieldDoBYear.getText().equals("XXXX")) {
 
@@ -423,10 +367,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
         jTextFieldDoBYear.setText("");
         jTextFieldDoBYear.setForeground(java.awt.Color.BLACK);
     }//GEN-LAST:event_jTextFieldDoBYearFocusGained
-
-    private void jTextFieldDoBMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBMonthActionPerformed
-
-    }//GEN-LAST:event_jTextFieldDoBMonthActionPerformed
 
     private void jTextFieldDoBMonthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDoBMonthFocusLost
         if (!jTextFieldDoBMonth.getText().equals("XX")) {
@@ -547,10 +487,6 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonSaveNewActionPerformed
-
-    private void jTextFieldDoBDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBDayActionPerformed
-
-    }//GEN-LAST:event_jTextFieldDoBDayActionPerformed
 
     private void jTextFieldDoBDayFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDoBDayFocusLost
         if (!jTextFieldDoBDay.getText().equals("XX")) {

@@ -550,7 +550,7 @@ public class Admin_ManageStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCleanActionPerformed
-
+        //CleanFields
         jComboBoxStudentList.requestFocus();
         jComboBoxStudentList.setSelectedIndex(-1);
 

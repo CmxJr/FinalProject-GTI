@@ -237,7 +237,7 @@ public class Admin_Options extends javax.swing.JFrame {
     private void jButtonUpdateStudentInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateStudentInfoActionPerformed
     Admin_ManageStudent f = new Admin_ManageStudent();
     f.setVisible(true);
-    this.dispose();    // TODO add your handling code here:
+    this.dispose();
     }//GEN-LAST:event_jButtonUpdateStudentInfoActionPerformed
 
     private void jButtonFullStudentRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFullStudentRecordActionPerformed

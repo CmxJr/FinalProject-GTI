@@ -7,7 +7,6 @@ package Admin_Frames;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import my.fp.Classes.Staff;
@@ -79,11 +78,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(617, 619));
         setMinimumSize(new java.awt.Dimension(617, 619));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
         jLabelNName8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabelNName8.setText("Register New Staff");
@@ -160,11 +154,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
                 jTextFieldDoBMonthFocusLost(evt);
             }
         });
-        jTextFieldDoBMonth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDoBMonthActionPerformed(evt);
-            }
-        });
 
         jTextFieldDoBYear.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldDoBYear.setText("XXXX");
@@ -177,29 +166,12 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
                 jTextFieldDoBYearFocusLost(evt);
             }
         });
-        jTextFieldDoBYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDoBYearActionPerformed(evt);
-            }
-        });
 
         jLabelNName9.setText("D");
 
         jLabelNName10.setText("M");
 
         jLabelNName11.setText("Y");
-
-        jTextFieldAddressLine1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAddressLine1ActionPerformed(evt);
-            }
-        });
-
-        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailActionPerformed(evt);
-            }
-        });
 
         jTextFieldEircode.setForeground(new java.awt.Color(153, 153, 153));
         jTextFieldEircode.setText("H91PHK1");
@@ -220,12 +192,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         jLabelNName14.setText("Surname:");
 
         jLabelNName1.setText("Address Line 1:");
-
-        jTextFieldAddressLine2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAddressLine2ActionPerformed(evt);
-            }
-        });
 
         jLabelNName12.setText("Address Line 2:");
 
@@ -406,10 +372,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    }//GEN-LAST:event_formWindowActivated
-
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
@@ -441,10 +403,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         jTextFieldDoBYear.setForeground(java.awt.Color.GRAY);
     }//GEN-LAST:event_jButtonCleanActionPerformed
 
-    private void jTextFieldAddressLine2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddressLine2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAddressLine2ActionPerformed
-
     private void jTextFieldEircodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldEircodeFocusLost
         if (!jTextFieldEircode.getText().equals("H91PHK1")) {
 
@@ -460,18 +418,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         jTextFieldEircode.setForeground(java.awt.Color.BLACK);
     }//GEN-LAST:event_jTextFieldEircodeFocusGained
 
-    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
-
-    }//GEN-LAST:event_jTextFieldEmailActionPerformed
-
-    private void jTextFieldAddressLine1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddressLine1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAddressLine1ActionPerformed
-
-    private void jTextFieldDoBYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBYearActionPerformed
-
-    }//GEN-LAST:event_jTextFieldDoBYearActionPerformed
-
     private void jTextFieldDoBYearFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDoBYearFocusLost
         if (!jTextFieldDoBYear.getText().equals("XXXX")) {
 
@@ -486,10 +432,6 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
         jTextFieldDoBYear.setText("");
         jTextFieldDoBYear.setForeground(java.awt.Color.BLACK);
     }//GEN-LAST:event_jTextFieldDoBYearFocusGained
-
-    private void jTextFieldDoBMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBMonthActionPerformed
-
-    }//GEN-LAST:event_jTextFieldDoBMonthActionPerformed
 
     private void jTextFieldDoBMonthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDoBMonthFocusLost
         if (!jTextFieldDoBMonth.getText().equals("XX")) {

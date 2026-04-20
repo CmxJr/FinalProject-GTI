@@ -24,7 +24,6 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
     private static final String URL = "jdbc:mysql://localhost:3306/final_project";
     private static final String USER = "root";      // seu usuário MySQL
     private static final String PASSWORD = "Root@1234"; // sua senha
-    private Integer selectedStaffId = null;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Admin_Options_CoursesAndModules.class.getName());
 
@@ -32,8 +31,6 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
      * Creates new form StaffFrame
      */
     public Admin_Options_CoursesAndModules() {
-        int id = 0;
-
         initComponents();
     }
 
@@ -68,19 +65,9 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxCourse.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxCourseItemStateChanged(evt);
-            }
-        });
         jComboBoxCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCourseActionPerformed(evt);
-            }
-        });
-        jComboBoxCourse.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboBoxCoursePropertyChange(evt);
             }
         });
 
@@ -114,11 +101,6 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
         listModules.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 listModulesItemStateChanged(evt);
-            }
-        });
-        listModules.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listModulesActionPerformed(evt);
             }
         });
 
@@ -208,14 +190,6 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jButtonCleanActionPerformed
-
-    private void jComboBoxCourseItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCourseItemStateChanged
-
-    }//GEN-LAST:event_jComboBoxCourseItemStateChanged
-
-    private void jComboBoxCoursePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboBoxCoursePropertyChange
-
-    }//GEN-LAST:event_jComboBoxCoursePropertyChange
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         this.dispose();
@@ -310,10 +284,6 @@ public class Admin_Options_CoursesAndModules extends javax.swing.JFrame {
     }
     // TODO add your handling code here:
     }//GEN-LAST:event_listModulesItemStateChanged
-
-    private void listModulesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listModulesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listModulesActionPerformed
 
     private void updateModuleList(int courseId) {
     listModules.removeAll();
