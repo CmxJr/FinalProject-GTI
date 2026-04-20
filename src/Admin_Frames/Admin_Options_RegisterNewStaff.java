@@ -522,10 +522,23 @@ public class Admin_Options_RegisterNewStaff extends javax.swing.JFrame {
             s.setPhoneNumber(jTextFieldPhone.getText().trim());
             s.setPpsn(jTextFieldPPSN.getText().trim().toUpperCase());
 
-            int day = Integer.parseInt(jTextFieldDoBDay.getText().trim());
-            int month = Integer.parseInt(jTextFieldDoBMonth.getText().trim());
-            int year = Integer.parseInt(jTextFieldDoBYear.getText().trim());
-            s.setDateOfBirth(java.time.LocalDate.of(year, month, day));
+            try {
+                //Date logic
+                int day = Integer.parseInt(jTextFieldDoBDay.getText().trim());
+                int month = Integer.parseInt(jTextFieldDoBMonth.getText().trim());
+                int year = Integer.parseInt(jTextFieldDoBYear.getText().trim());
+                s.setDateOfBirth(java.time.LocalDate.of(year, month, day));
+            } catch (java.time.DateTimeException e) {
+                JOptionPane.showMessageDialog(this,
+                        "The date entered is invalid.\n"
+                        + "Please ensure: \n"
+                        + "- Day (DD) is between 01-31\n"
+                        + "- Month (MM) is between 01-12\n"
+                        + "- Year (YYYY) is valid.",
+                        "Date Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             StringBuilder sb = new StringBuilder();
             sb.append("Are you sure you want to create this new staff?\n\n");

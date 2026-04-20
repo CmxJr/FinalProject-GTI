@@ -40,21 +40,29 @@
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonUpdateStudentInfo" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
-                          <Component id="jButtonManageStaff" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
-                          <Component id="jButtonCoursesAndModules" min="-2" pref="266" max="-2" attributes="0"/>
-                          <Component id="jButtonBackToLogin" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jButtonUpdateStudentInfo" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonManageStaff" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonCoursesAndModules" min="-2" pref="266" max="-2" attributes="0"/>
+                                  <Component id="jButtonBackToLogin" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                       <Component id="jButtonFullStudentRecord" alignment="1" min="-2" pref="266" max="-2" attributes="0"/>
@@ -96,10 +104,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonModuleResultsAllGroups" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jButtonCoursesAndModules" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButtonModuleResultsDistinction" min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonModuleResultsDistinction" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jButtonCoursesAndModules" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonModuleResultsFullClass" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -209,6 +220,11 @@
           <Font name="Helvetica Neue" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Logged in as Administrator"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Course details"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -469,11 +469,23 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
             s.setPhoneNumber(jTextFieldPhone.getText().trim());
             s.setPpsn(jTextFieldPPSN.getText().trim().toUpperCase());
 
-            //Date logic
-            int day = Integer.parseInt(jTextFieldDoBDay.getText().trim());
-            int month = Integer.parseInt(jTextFieldDoBMonth.getText().trim());
-            int year = Integer.parseInt(jTextFieldDoBYear.getText().trim());
-            s.setDateOfBirth(java.time.LocalDate.of(year, month, day));
+            try {
+                //Date logic
+                int day = Integer.parseInt(jTextFieldDoBDay.getText().trim());
+                int month = Integer.parseInt(jTextFieldDoBMonth.getText().trim());
+                int year = Integer.parseInt(jTextFieldDoBYear.getText().trim());
+                s.setDateOfBirth(java.time.LocalDate.of(year, month, day));
+            } catch (java.time.DateTimeException e) {
+                JOptionPane.showMessageDialog(this,
+                        "The date entered is invalid.\n"
+                        + "Please ensure: \n"
+                        + "- Day (DD) is between 01-31\n"
+                        + "- Month (MM) is between 01-12\n"
+                        + "- Year (YYYY) is valid.",
+                        "Date Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             //Message for confirming new Student
             StringBuilder sb = new StringBuilder();
@@ -533,7 +545,7 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
                 System.out.println("Registration cancelled by user.");
             }
         }
-        
+
     }//GEN-LAST:event_jButtonSaveNewActionPerformed
 
     private void jTextFieldDoBDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDoBDayActionPerformed
@@ -596,7 +608,7 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
                 if (name != null) {
                     String[] words = name.split("\\s+"); // Split by spaces
                     if (words.length > 4) {
-                        displayName = words[0] + " " + words[1] + " " + words[2] +" "+ words[3] + "...";
+                        displayName = words[0] + " " + words[1] + " " + words[2] + " " + words[3] + "...";
                     }
                 }
 
@@ -617,12 +629,12 @@ public class Admin_Options_RegisterNewStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jComboBoxClasseGroupItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxClasseGroupItemStateChanged
-    if (jComboBoxClasseGroup.getSelectedItem() == null) {
-        jComboBoxClasseGroup.setToolTipText(null);
+        if (jComboBoxClasseGroup.getSelectedItem() == null) {
+            jComboBoxClasseGroup.setToolTipText(null);
 
-        return;
-    }
-    jComboBoxClasseGroup.setToolTipText(jComboBoxClasseGroup.getSelectedItem().toString());
+            return;
+        }
+        jComboBoxClasseGroup.setToolTipText(jComboBoxClasseGroup.getSelectedItem().toString());
     }//GEN-LAST:event_jComboBoxClasseGroupItemStateChanged
 
     public boolean validateFields() {
