@@ -26,6 +26,7 @@ The project uses a relational database named `final_project` with the following 
 * `module`: Academic units linked to staff.
 * `course_has_module`: Bridge table for many-to-many relationships.
 * `assessment`: Stores grades linked to students and modules.
+<img width="912" height="755" alt="Screenshot 2026-04-13 at 12 14 12" src="https://github.com/user-attachments/assets/3c33601f-099e-4104-a3b6-91bb70930c9d" />
 
 ## 🔧 Installation & Setup
 
