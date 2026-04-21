@@ -22,6 +22,8 @@ This is a Java-based desktop application designed to manage students, courses, a
 
 The project uses a relational database named `final_project` with the following key tables:
 * `student`: Primary student records.
+* `staff`: Staff records.
+* `class_group`: Class groups linked to Courses and students.
 * `course`: Course details and QQI levels.
 * `module`: Academic units linked to staff.
 * `course_has_module`: Bridge table for many-to-many relationships.
